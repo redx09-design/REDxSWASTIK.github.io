@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE SILVER STRINGS (TSS)</title>
+
+  <!-- INTERNAL CSS -->
+  <style>
+    /* =====================
+       GLOBAL STYLES
+    ====================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #1e1e1e; /* Charcoal */
+      color: #f5f5f5; /* Silver / White */
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    h1, h2, h3 {
+      color: #e6e6e6; /* Silver */
+      letter-spacing: 1px;
+    }
+
+    p {
+      color: #f3e8d8; /* Cream */
+      font-size: 1rem;
+    }
+
+    /* =====================
+       NAVBAR
+    ====================== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(30, 30, 30, 0.9);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      border-bottom: 1px solid #3a3a3a;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #dcdcdc;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: #cfcfcf;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #6b7ea8; /* Slate Blue */
+    }
+
+    /* =====================
+       HERO SECTION
+    ====================== */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #2a2a2a, #1e1e1e);
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content h1 span {
+      color: #6b7ea8; /* Slate Blue */
+    }
+
+    .hero-content p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 30px;
+      background: #6b7ea8;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #889ac0;
+      transform: translateY(-2px);
+    }
+
+    /* =====================
+       ABOUT SECTION
+    ====================== */
+    #about h2 {
+      margin-bottom: 20px;
+    }
+
+    #about .about-box {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #3a3a3a;
+    }
+
+    /* =====================
+       PRICES
+    ====================== */
+    #prices .price-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #444;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+    }
+
+    #prices h3 {
+      color: #6b7ea8;
+      margin-bottom: 10px;
+    }
+
+    /* =====================
+       VIDEOS & PHOTOS
+    ====================== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .placeholder {
+      background: #2b2b2b;
+      border: 1px dashed #555;
+      height: 180px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* =====================
+       CONTACT
+    ====================== */
+    #contact .contact-box {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #444;
+      max-width: 600px;
+    }
+
+    .contact-box a {
+      display: inline-block;
+      margin-top: 15px;
+      margin-right: 10px;
+    }
+
+    /* =====================
+       FOOTER
+    ====================== */
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.8rem;
+      color: #aaa;
+      border-top: 1px solid #333;
+    }
+
+    /* =====================
+       ANIMATIONS
+    ====================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================
+       RESPONSIVE
+    ====================== */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      nav .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">THE SILVER STRINGS</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#prices">Prices</a>
+        <a href="#videos">Videos</a>
+        <a href="#photos">Photos</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="hero-content fade-in">
+      <h1>THE SILVER STRINGS <span>(TSS)</span></h1>
+      <p>
+        A premium live music band delivering soulful, energetic and unforgettable
+        performances across college events, DU circuits, cafés, MUN socials and youth parliaments.
+      </p>
+      <a class="btn" href="tel:9983449361">Book Us Now</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="fade-in">About The Band</h2>
+    <div class="about-box fade-in">
+      <p>
+        <strong>THE SILVER STRINGS (TSS)</strong> is a professionally curated live music band,
+        established in 2025, featuring 5–7 experienced musicians with a strong command over
+        stage presence and audience engagement.
+        <br><br>
+        Our repertoire spans <strong>Hindi Sufi, Bollywood, Rock</strong> and multiple genres
+        tailored to client demand. With extensive experience performing at college festivals,
+        DU events, MUN socials and youth parliaments, we deliver polished, high-energy
+        performances lasting 30–40 minutes per set.
+        <br><br>
+        We focus on musical quality, discipline, and creating an immersive live-music experience.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section id="prices">
+    <h2 class="fade-in">Pricing</h2>
+    <div class="price-card fade-in">
+      <h3>Delhi University (DU) Events</h3>
+      <p>
+        <strong>₹6500 – ₹7000</strong> for one set (30–40 minutes)
+        <br><br>
+        <em>
+          Prices for non-DU venues, cafés, private events and festivals may vary
+          and can be discussed based on requirements.
+        </em>
+      </p>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos">
+    <h2 class="fade-in">Videos</h2>
+    <div class="grid fade-in">
+      <div class="placeholder">YouTube Video Embed</div>
+      <div class="placeholder">YouTube Video Embed</div>
+      <div class="placeholder">YouTube Video Embed</div>
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section id="photos">
+    <h2 class="fade-in">Photos</h2>
+    <div class="grid fade-in">
+      <div class="placeholder">Image Placeholder</div>
+      <div class="placeholder">Image Placeholder</div>
+      <div class="placeholder">Image Placeholder</div>
+      <div class="placeholder">Image Placeholder</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="fade-in">Contact & Booking</h2>
+    <div class="contact-box fade-in">
+      <p>
+        📞 Phone: <strong>9983449361</strong>
+        <br><br>
+        📷 Instagram:
+        <br>
+        @THESILVER_strings
+        <br>
+        @Swastikgupta_18
+      </p>
+      <a class="btn" href="tel:9983449361">Call Now</a>
+      <a class="btn" href="https://instagram.com/THESILVER_strings" target="_blank">Instagram</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 THE SILVER STRINGS (TSS) | Live Music Band
+  </footer>
+
+  <!-- INTERNAL JS -->
+  <script>
+    // Fade-in animation on scroll
+    const elements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
